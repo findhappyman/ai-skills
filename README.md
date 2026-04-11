@@ -4,7 +4,19 @@
 
 ## 安装方式
 
-### 方法一：Claude Code /plugin 命令（推荐）
+### 方法一：npm（一行命令，自动安装到本地）
+
+```bash
+npm install -g henry-ai-skills
+```
+
+安装时会自动将技能文件复制到 `~/.claude/skills/`，重启 Claude Code 即可使用。
+
+> 如果用 `--ignore-scripts` 安装，可手动运行 `henry-ai-skills` 触发安装。
+
+---
+
+### 方法二：Claude Code /plugin 命令（从 GitHub 在线安装）
 
 在 Claude Code 终端中运行以下命令，将此仓库注册为插件市场：
 
@@ -22,7 +34,7 @@
 
 ---
 
-### 方法二：手动复制
+### 方法三：手动复制
 
 将对应文件夹中的 `skill.md` 内容复制到 Claude Projects 的自定义指令中，或放入 `~/.claude/skills/<skill-name>/` 目录下使用。
 
