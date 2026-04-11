@@ -1,0 +1,22 @@
+{
+  "name": "henry-ai-skills",
+  "owner": {
+    "name": "Henry Xue",
+    "email": "henry@findhappyman.com"
+  },
+  "metadata": {
+    "description": "Henry 的 AI 技能集合 · Claude Code 插件",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "article-optimizer",
+      "description": "多平台文章优化工具：将文章适配微信公众号、X（推特）、小红书，并生成 AI 配图 Prompt",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./article-optimizer"
+      ]
+    }
+  ]
+}
