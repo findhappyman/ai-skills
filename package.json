@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "Henry 的 AI 技能集合 · Claude Code 插件",
   "bin": {
-    "henry-ai-skills": "./bin/install.js"
+    "henry-ai-skills": "bin/install.js"
   },
   "scripts": {
     "postinstall": "node ./bin/install.js"
@@ -23,6 +23,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/findhappyman/ai-skills.git"
+    "url": "git+https://github.com/findhappyman/ai-skills.git"
   }
 }
