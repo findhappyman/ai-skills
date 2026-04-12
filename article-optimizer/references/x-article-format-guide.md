@@ -31,7 +31,7 @@ X Article 编辑器原生支持 Markdown 渲染，包括：
 ```markdown
 # {{文章标题}}
 
-*薛衡 · {{Mon DD, YYYY}}*
+*{{YOUR_NAME}} · {{Mon DD, YYYY}}*
 
 ---
 
@@ -55,7 +55,7 @@ X Article 编辑器原生支持 Markdown 渲染，包括：
 
 **{{结尾金句}}**
 
-@薛衡Henry
+@{{YOUR_X_HANDLE}}
 ```
 
 ### 内容转换规则
@@ -89,7 +89,7 @@ X Article 编辑器原生支持 Markdown 渲染，包括：
 ```
 {{推文内容，≤280字符}}
 
-@薛衡Henry
+@{{YOUR_X_HANDLE}}
 ```
 
 ### Thread 格式
@@ -111,7 +111,7 @@ X Article 编辑器原生支持 Markdown 渲染，包括：
 
 N/N {{总结或行动号召}}
 
-@薛衡Henry
+@{{YOUR_X_HANDLE}}
 ```
 
 ### 加粗效果
@@ -140,7 +140,7 @@ X 免费用户不支持原生加粗。如需强调，使用以下方式：
 
 - **内容与公众号版一致**——只改格式和风格，不改核心文字
 - **日期格式**：英文月份缩写 + 日 + 年，如 Mar 28, 2026
-- **署名格式**：@薛衡Henry
+- **署名格式**：@{{YOUR_X_HANDLE}}
 - **X Article 用 Markdown**，不用 HTML
 - **推文用纯文本**，不用 HTML
 - **整体风格**：比公众号更简洁、更直接，减少修饰性文字

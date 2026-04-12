@@ -26,7 +26,7 @@
 ```
 {{文章标题}}
 
-薛衡 · {{YYYY.MM.DD}}
+{{YOUR_NAME}} · {{YYYY.MM.DD}}
 
 ——————
 

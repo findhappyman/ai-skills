@@ -142,13 +142,13 @@
 
 渐变背景 + 公众号名 + 标题 + 三圆点装饰 + 作者日期。
 
-公众号名固定「薛衡 HENRY」（大写英文，letter-spacing 拉开），作者名「薛衡」，日期取当天。
+公众号名固定「{{YOUR_ACCOUNT_NAME}}」，作者名「{{YOUR_NAME}}」，日期取当天。
 
 ```html
 <section style="background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%); padding: 40px 24px 30px 24px; text-align: center;">
   <!-- 公众号名 -->
   <section style="font-size: 13px; color: #b0b0b0; letter-spacing: 3px; margin-bottom: 20px;">
-    薛衡 HENRY
+    {{YOUR_ACCOUNT_NAME}}
   </section>
   <!-- 标题 -->
   <section style="font-size: 24px; font-weight: bold; color: #1a1a1a; line-height: 1.5; letter-spacing: 1px; padding: 0 10px;">
@@ -162,7 +162,7 @@
   </section>
   <!-- 作者与日期 -->
   <section style="margin-top: 16px; font-size: 14px; color: #aaaaaa; line-height: 1.6;">
-    薛衡 · {{YYYY年M月D日}}
+    {{YOUR_NAME}} · {{YYYY年M月D日}}
   </section>
 </section>
 ```
@@ -287,7 +287,7 @@
     感谢阅读，如果觉得有启发
   </section>
   <section style="font-size: 17px; color: #3d7de0; font-weight: bold; margin-top: 6px; letter-spacing: 0.5px;">
-    欢迎关注「薛衡 Henry」
+    欢迎关注「{{YOUR_ACCOUNT_NAME}}」
   </section>
 </section>
 ```
