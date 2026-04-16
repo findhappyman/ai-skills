@@ -4,15 +4,13 @@
 
 ## 安装方式
 
-### 方法一：npm（一行命令，自动安装到本地）
+### 方法一：npx（一行命令，直接从 GitHub 安装）
 
 ```bash
-npm install -g henry-ai-skills
+npx github:findhappyman/ai-skills
 ```
 
-安装时会自动将技能文件复制到 `~/.claude/skills/`，重启 Claude Code 即可使用。
-
-> 如果用 `--ignore-scripts` 安装，可手动运行 `henry-ai-skills` 触发安装。
+会自动将技能文件复制到 `~/.claude/skills/`，重启 Claude Code 即可使用。无需提前安装任何包。
 
 ---
 
