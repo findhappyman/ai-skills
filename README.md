@@ -44,6 +44,18 @@ npx github:findhappyman/ai-skills
 |--------|----------|------|
 | [article-optimizer](./article-optimizer/skill.md) | Article Optimizer | 将原始文章优化并适配微信公众号、X（推特）、小红书三个平台，同时生成 AI 配图 Prompt |
 
+### Article Optimizer — 使用前配置
+
+`skill.md` 中包含以下占位符，**首次使用前请替换为你自己的信息**：
+
+| 占位符 | 替换为 |
+|--------|--------|
+| `{{YOUR_NAME}}` | 你的真名或笔名（中文） |
+| `{{YOUR_ACCOUNT_NAME}}` | 你的微信公众号名称 |
+| `{{YOUR_X_HANDLE}}` | 你的 X (Twitter) Handle，不带 @ |
+
+直接在 `skill.md` 文件里全局替换后保存即可。
+
 ## 开源协议
 
 MIT
