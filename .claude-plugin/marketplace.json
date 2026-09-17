@@ -1,17 +1,16 @@
 {
-  "name": "henry-ai-skills",
+  "name": "ai-skills",
   "owner": {
-    "name": "Henry Xue",
-    "email": "henry@findhappyman.com"
+    "name": "AI Skills maintainers"
   },
   "metadata": {
-    "description": "Henry 的 AI 技能集合 · Claude Code 插件",
-    "version": "1.0.0"
+    "description": "可复用的文章生产与草稿技能",
+    "version": "2.0.0"
   },
   "plugins": [
     {
       "name": "article-optimizer",
-      "description": "多平台文章优化工具：将文章适配微信公众号、X（推特）、小红书，并生成 AI 配图 Prompt",
+      "description": "录音转写、原始稿保护、多平台图文审核包和已授权草稿流程",
       "source": "./",
       "strict": false,
       "skills": [

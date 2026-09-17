@@ -1,0 +1,7 @@
+interface:
+  display_name: "Article Optimizer"
+  short_description: "从录音或初稿生成中文多平台文章审核包和草稿"
+  default_prompt: "Use $article-optimizer to turn this transcript or draft into a Chinese multi-platform review package."
+policy:
+  allow_implicit_invocation: true
+

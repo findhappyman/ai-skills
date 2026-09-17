@@ -1,46 +1,52 @@
 #!/usr/bin/env node
+const fs = require("node:fs");
+const path = require("node:path");
+const os = require("node:os");
 
-const fs = require('fs');
-const path = require('path');
-const os = require('os');
-
-const pkgDir = path.join(__dirname, '..');
-const claudeSkillsDir = path.join(os.homedir(), '.claude', 'skills');
-
-function copyDir(src, dest) {
-  fs.mkdirSync(dest, { recursive: true });
-  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
-    if (entry.isDirectory()) {
-      copyDir(srcPath, destPath);
-    } else {
-      fs.copyFileSync(srcPath, destPath);
-    }
+function destinations(argv, env = process.env, home = os.homedir()) {
+  let target = "claude", custom;
+  for (let i = 0; i < argv.length; i++) {
+    if (argv[i] === "--target" && argv[i + 1]) target = argv[++i];
+    else if (argv[i] === "--dir" && argv[i + 1]) custom = path.resolve(argv[++i]);
+    else throw new Error("参数：--target claude|codex|both 或 --dir PATH");
   }
+  if (!["claude", "codex", "both"].includes(target)) throw new Error("未知安装目标");
+  if (custom) return [custom];
+  const dirs = [];
+  if (target !== "codex") dirs.push(path.join(home, ".claude", "skills"));
+  if (target !== "claude") dirs.push(path.join(env.CODEX_HOME || path.join(home, ".codex"), "skills"));
+  return dirs;
 }
 
-// 找出所有包含 skill.md 的技能目录
-const SKIP = new Set(['.git', '.claude-plugin', 'bin', 'node_modules']);
-const skillDirs = fs.readdirSync(pkgDir, { withFileTypes: true })
-  .filter(d => d.isDirectory() && !SKIP.has(d.name))
-  .filter(d =>
-    fs.existsSync(path.join(pkgDir, d.name, 'skill.md')) ||
-    fs.existsSync(path.join(pkgDir, d.name, 'SKILL.md'))
-  );
-
-if (skillDirs.length === 0) {
-  console.log('No skills found to install.');
-  process.exit(0);
+function install(root, source = path.resolve(__dirname, "../article-optimizer")) {
+  const dest = path.join(root, "article-optimizer");
+  if (path.resolve(dest) === path.resolve(source)) throw new Error("安装目标不能是来源目录");
+  fs.mkdirSync(root, { recursive: true });
+  let backup;
+  if (fs.existsSync(dest)) {
+    const backupDir = fs.mkdtempSync(path.join(root, ".article-optimizer-backup-"));
+    backup = path.join(backupDir, "article-optimizer");
+    fs.renameSync(dest, backup);
+  }
+  try {
+    fs.cpSync(source, dest, { recursive: true, filter: p => !["__pycache__", ".DS_Store"].includes(path.basename(p)) && !p.endsWith(".pyc") });
+  } catch (err) {
+    // 只清理本次安装目标，再还原已有技能。
+    fs.rmSync(dest, { recursive: true, force: true });
+    if (backup) fs.renameSync(backup, dest);
+    throw err;
+  }
+  return { dest, backup };
 }
 
-console.log(`\nInstalling ${skillDirs.length} skill(s) to ${claudeSkillsDir}\n`);
-
-for (const dir of skillDirs) {
-  const src = path.join(pkgDir, dir.name);
-  const dest = path.join(claudeSkillsDir, dir.name);
-  copyDir(src, dest);
-  console.log(`  ✓ ${dir.name}`);
+if (require.main === module) {
+  try {
+    for (const root of destinations(process.argv.slice(2))) {
+      const result = install(root);
+      console.log("已安装：" + result.dest);
+      if (result.backup) console.log("旧版备份：" + result.backup);
+    }
+    console.log("重新开启宿主会话后使用 article-optimizer。");
+  } catch (err) { console.error(err.message); process.exitCode = 1; }
 }
-
-console.log('\nDone! Restart Claude Code to activate the skills.');
+module.exports = { destinations, install };

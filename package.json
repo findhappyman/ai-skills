@@ -1,24 +1,27 @@
 {
-  "name": "henry-ai-skills",
-  "version": "1.1.0",
-  "description": "Henry 的 AI 技能集合 · Claude Code 插件",
+  "name": "portable-article-skills",
+  "version": "2.0.0",
+  "description": "可复用的中文多平台文章生产、审核和草稿工作流",
   "bin": {
-    "henry-ai-skills": "bin/install.js"
+    "ai-skills": "bin/install.js"
   },
-  "scripts": {},
   "files": [
-    "bin/",
+    "bin/install.js",
     "article-optimizer/",
-    ".claude-plugin/"
+    ".claude-plugin/",
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "claude",
-    "claude-code",
+    "codex",
     "ai-skills",
-    "skill"
+    "article"
   ],
-  "author": "Henry Xue",
   "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/findhappyman/ai-skills.git"
