@@ -4,4 +4,3 @@ interface:
   default_prompt: "Use $article-optimizer to turn this transcript or draft into a Chinese multi-platform review package."
 policy:
   allow_implicit_invocation: true
-
