@@ -6,6 +6,19 @@
 
 需要 Node.js 18+；安装器本身无第三方依赖。
 
+推荐从仓库安装，避开不同 npm 版本的 Git 打包差异：
+
+```bash
+git clone https://github.com/findhappyman/ai-skills.git
+cd ai-skills
+node bin/install.js --target codex
+# Claude Code 使用 --target claude；同时安装使用 --target both
+```
+
+已克隆的仓库更新后再次安装即可：`git pull --ff-only`，然后运行同一安装命令。
+
+也可用 npx；如果出现 `GitFetcher requires an Arborist constructor`，改用上面的克隆安装：
+
 ```bash
 # Claude Code（默认）
 npx github:findhappyman/ai-skills
